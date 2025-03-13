@@ -24,7 +24,7 @@ for php_version in "${php_version_array[@]}"; do
         php_version=${php_version} svn_version=${svn_version} envsubst <03.cicd/${sign}/dockerfile >03.cicd/${sign}/dockerfile.temp
         mv 03.cicd/${sign}/dockerfile.temp 03.cicd/${sign}/dockerfile
 
-        image_svnadmin="svnadmin-${GIT_BRANCH}:${sign}"
+        image_svnadmin="svnadmin:${sign}"
         docker build -f 03.cicd/${sign}/dockerfile . -t="${image_svnadmin}"
 #        docker push ${image_svnadmin}
 
